@@ -175,6 +175,10 @@ public class Sanpham {
         return String.format("%-10s %-20s %-20s %-20s %-20s %-10d %-15d",MaSP,Ten,NSX.outputDATE(),HSD.outputDATE(),Hang,Sl,Gia);
     }
 
+    public void toStringL(){
+
+    }
+
 }
 
 class MyPham extends Sanpham{
@@ -207,13 +211,10 @@ class MyPham extends Sanpham{
     }
 
     @Override
-    public String toString(){
-        return super.toString()+String.format(" %-20s",Loai);
+    public void toStringL(){
+        System.out.println(super.toString()+String.format(" %-20s",Loai));
     }
 
-    public String outputSP(){
-        return super.toString();
-    }
 }
 
 class ThoiTrang extends Sanpham{
@@ -243,31 +244,35 @@ class ThoiTrang extends Sanpham{
 
     public void Input(){
         super.Input();
+        boolean flag=true;
+        do{
         System.out.println("Hay nhap gioi tinh ( 1:Nam || 0:Nu )");
         if(sc.nextLine().equals("1"))
         {
             GioiTinh=true;
+            flag=false;
         }
-        else
+        else if(sc.nextLine().equals("0"))
         {
             GioiTinh=false;
+            flag=false;
         }
+        else{
+            System.out.println("Nhap sai vui long nhap lai ");
+        }
+        }while(flag);
     }
 
     @Override
-    public String toString(){
+    public void toStringL(){
         if(GioiTinh)
         {
-            return super.toString()+String.format(" %-10s","Nam");
+            System.out.println(super.toString()+String.format(" %-15s","Nam"));
         }
         else
         {
-            return super.toString()+String.format(" %-10s","Nu");
+            System.out.println(super.toString()+String.format(" %-15s","Nu"));
         }
-    }
-
-    public String outputSP(){
-        return super.toString();
     }
 }
 
@@ -298,27 +303,24 @@ class VPPham extends Sanpham{
         {
         System.out.print("Hay nhap ma san pham : ");
         MaSP=sc.nextLine();
-        if(MaSP.substring(0,2).equals("TT") && MaSP.substring(2).length()==3) {break;}
+        if(MaSP.substring(0,2).equals("PP") && MaSP.substring(2).length()==3) {break;}
         else {System.out.println("Vui long nhap lai");}
         }
     }
 
     public void Input(){
         super.Input();
-        System.out.println("Hay nhap loai chat lieu : ");
+        System.out.print("Hay nhap loai chat lieu : ");
         ChatLieu=sc.nextLine();
-        System.out.println("Hay nhap doi tuong su dung : ");
+        System.out.print("Hay nhap doi tuong su dung : ");
         DoiTuong=sc.nextLine();
     }
 
     @Override
-    public String toString(){
-        return super.toString()+String.format(" %-20s %-20s",ChatLieu,DoiTuong);
+    public void toStringL(){
+        System.out.println(super.toString()+String.format(" %-20s %-20s",ChatLieu,DoiTuong));
     }
 
-    public String outputSP(){
-        return super.toString();
-    }
 }
 
 class ThucPham extends Sanpham{
@@ -330,17 +332,29 @@ class ThucPham extends Sanpham{
 
     public void setCheBien(String CheBien){
         this.CheBien=CheBien;
-    }  
+    } 
+    
+    @Override
+    public void inputMaSP(){
+        System.out.println("Ma san pham co 2 ky tu dau la 'TP' va thu tu sau co 3 so (VD:PP001).");
+        while(true)
+        {
+        System.out.print("Hay nhap ma san pham : ");
+        MaSP=sc.nextLine();
+        if(MaSP.substring(0,2).equals("TP") && MaSP.substring(2).length()==3) {break;}
+        else {System.out.println("Vui long nhap lai");}
+        }
+    }
 
     public void Input(){
         super.Input();
-        System.out.println("Hay nhap cach che bien : ");
+        System.out.print("Hay nhap cach che bien : ");
         CheBien=sc.nextLine();
     }
 
     @Override
-    public String toString(){
-        return super.toString()+String.format(" %-20s",CheBien);
+    public void toStringL(){
+        System.out.println(super.toString()+String.format(" %-20s",CheBien));
     }   
 }
 
@@ -364,16 +378,28 @@ class ThucUong extends Sanpham{
         this.DongGoi=DongGoi;
     }
     
+    @Override
+    public void inputMaSP(){
+        System.out.println("Ma san pham co 2 ky tu dau la 'TU' va thu tu sau co 3 so (VD:PP001).");
+        while(true)
+        {
+        System.out.print("Hay nhap ma san pham : ");
+        MaSP=sc.nextLine();
+        if(MaSP.substring(0,2).equals("TU") && MaSP.substring(2).length()==3) {break;}
+        else {System.out.println("Vui long nhap lai");}
+        }
+    }
+
     public void Input(){
         super.Input();
-        System.out.println("Hay nhap loai thuc uong : ");
+        System.out.print("Hay nhap loai thuc uong : ");
         Loai=sc.nextLine();
-        System.out.println("Hay nhap cach dong goi : ");
+        System.out.print("Hay nhap cach dong goi : ");
         DongGoi=sc.nextLine();
     }
 
     @Override
-    public String toString(){
-        return super.toString()+String.format(" %-20s -%20s",Loai,DongGoi);
+    public void toStringL(){
+        System.out.println(super.toString()+String.format(" %-20s -%20s",Loai,DongGoi));
     }
 }
