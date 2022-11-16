@@ -67,13 +67,6 @@ class Don{
     public void getSL(int SL){
         this.SL=SL;
     }
-
-    public void input(){
-        System.out.print("Hay nhap ma san pham : ");
-        MaSP=sc.nextLine();
-        System.out.print("Hay nhap so luong can mua : ");
-        SL=Integer.parseInt(sc.nextLine());
-    }
 }
 
 public class GioHang{
@@ -115,21 +108,6 @@ public class GioHang{
         this.List=List;
     }
 
-    public void input(){
-        System.out.println("Hay nhap thong tin khach hang : ");
-        Cus.input();
-        System.out.println("Hay nhap so luong muon mua : ");
-        n=Integer.parseInt(sc.nextLine());
-        List=new Don[n];
-        for(int i=0;i<n;i++)
-        {
-            System.out.printf("Nhap thong tin don thu %d:\n",i+1);
-            Don a=new Don();
-            a.input();
-            List[i]=a;
-        }
-    }
-
     public void HoaDon(){
 
     }
@@ -143,9 +121,7 @@ class GioHangList{
         List=new GioHang[0];
     }
 
-    public GioHang[] input(){
-        GioHang a=new GioHang();
-        a.input();
+    public GioHang[] input(GioHang a){
         GioHang Copied[]=new GioHang[n+1];
         for(int i=0;i<List.length;i++)
         {
