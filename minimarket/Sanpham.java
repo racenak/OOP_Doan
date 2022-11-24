@@ -40,30 +40,34 @@ class Date{
     }
 
     public void inputDATE(){
+        System.out.println("Neu khong co han su dung hay nhap gia tri ngay thang nam la 0");
         while(true)
         {
         System.out.print("Hay nhap ngay : ");
         d=Integer.parseInt(sc.nextLine());
-        if(d>0 && d<32) {break;}
+        if((d>=0 && d<32)) {break;}
         else {System.out.println("Vui long nhap lai");}
         }
         while(true)
         {
         System.out.print("Hay nhap thang : ");
         m=Integer.parseInt(sc.nextLine());
-        if(m>0 && m<13) {break;}
+        if(d==0 && m==0) {break;}
+        if((m>0 && m<13)) {break;}
         else {System.out.println("Vui long nhap lai");}
         }
         while(true)
         {
         System.out.print("Hay nhap nam : ");
         y=Integer.parseInt(sc.nextLine());
-        if(y>1000) {break;}
+        if(d==0 && m==0 && y==0) {break;}
+        if(y>1000 || y==0) {break;}
         else {System.out.println("Vui long nhap lai");}
         }
     }
 
     public String outputDATE(){
+        if(d==0 && m==0 && y==0) return String.format(" ");
         return String.format("%d/%d/%d",d,m,y);
     }
 }
@@ -172,17 +176,24 @@ public class Sanpham {
     @Override
     public String toString()
     {
-        return String.format("%-10s %-20s %-20s %-20s %-20s %-10d %-15d",MaSP,Ten,NSX.outputDATE(),HSD.outputDATE(),Hang,Sl,Gia);
+        return String.format("%-10s %-50s %-20s %-20s %-20s %-10d %-15d",MaSP,Ten,NSX.outputDATE(),HSD.outputDATE(),Hang,Sl,Gia);
     }
 
-    public void toStringL(){
-
+    public String toStringL(){
+        return "0";
     }
 
 }
 
 class MyPham extends Sanpham{
     private String Loai;
+
+    public MyPham(){}
+
+    public MyPham(String MaSP,String Ten,Date HSD,Date NSX,long Gia,String Hang,int Sl,String Loai){
+        super(MaSP,Ten,HSD,NSX,Gia,Hang,Sl);
+        this.Loai=Loai;
+    }
 
     public String getLoai(){
         return Loai;
@@ -211,14 +222,21 @@ class MyPham extends Sanpham{
     }
 
     @Override
-    public void toStringL(){
-        System.out.println(super.toString()+String.format(" %-20s",Loai));
+    public String toStringL(){
+        return super.toString()+String.format(" %-20s",Loai);
     }
 
 }
 
 class ThoiTrang extends Sanpham{
     public Boolean GioiTinh;
+
+    public ThoiTrang(){}
+
+    public ThoiTrang(String MaSP,String Ten,Date HSD,Date NSX,long Gia,String Hang,int Sl,boolean GioiTinh){
+        super(MaSP,Ten,HSD,NSX,Gia,Hang,Sl);
+        this.GioiTinh=GioiTinh;
+    }
 
     public Boolean getGioiTinh()
     {
@@ -264,14 +282,14 @@ class ThoiTrang extends Sanpham{
     }
 
     @Override
-    public void toStringL(){
+    public String toStringL(){
         if(GioiTinh)
         {
-            System.out.println(super.toString()+String.format(" %-15s","Nam"));
+            return super.toString()+String.format(" %-15s","Nam");
         }
         else
         {
-            System.out.println(super.toString()+String.format(" %-15s","Nu"));
+            return super.toString()+String.format(" %-15s","Nu");
         }
     }
 }
@@ -279,6 +297,14 @@ class ThoiTrang extends Sanpham{
 class VPPham extends Sanpham{
     private String ChatLieu;
     private String DoiTuong;
+
+    public VPPham(){}
+
+    public VPPham(String MaSP,String Ten,Date HSD,Date NSX,long Gia,String Hang,int Sl,String ChatLieu,String DoiTuong){
+        super(MaSP,Ten,HSD,NSX,Gia,Hang,Sl);
+        this.ChatLieu=ChatLieu;
+        this.DoiTuong=DoiTuong;
+    }
 
     public String getChatLieu(){
         return ChatLieu;
@@ -317,14 +343,21 @@ class VPPham extends Sanpham{
     }
 
     @Override
-    public void toStringL(){
-        System.out.println(super.toString()+String.format(" %-20s %-20s",ChatLieu,DoiTuong));
+    public String toStringL(){
+        return super.toString()+String.format(" %-20s %-20s",ChatLieu,DoiTuong);
     }
 
 }
 
 class ThucPham extends Sanpham{
     private String CheBien;
+
+    public ThucPham(){}
+
+    public ThucPham(String MaSP,String Ten,Date HSD,Date NSX,long Gia,String Hang,int Sl,String CheBien){
+        super(MaSP,Ten,HSD,NSX,Gia,Hang,Sl);
+        this.CheBien=CheBien;
+    }
     
     public String getCheBien(){
         return CheBien;
@@ -353,14 +386,22 @@ class ThucPham extends Sanpham{
     }
 
     @Override
-    public void toStringL(){
-        System.out.println(super.toString()+String.format(" %-20s",CheBien));
+    public String toStringL(){
+        return super.toString()+String.format(" %-20s",CheBien);
     }   
 }
 
 class ThucUong extends Sanpham{
     private String Loai;
     private String DongGoi;
+
+    public ThucUong(){}
+
+    public ThucUong(String MaSP,String Ten,Date HSD,Date NSX,long Gia,String Hang,int Sl,String Loai,String DongGoi){
+        super(MaSP,Ten,HSD,NSX,Gia,Hang,Sl);
+        this.Loai=Loai;
+        this.DongGoi=DongGoi;
+    }
 
     public String getLoai(){
         return Loai;
@@ -380,7 +421,7 @@ class ThucUong extends Sanpham{
     
     @Override
     public void inputMaSP(){
-        System.out.println("Ma san pham co 2 ky tu dau la 'TU' va thu tu sau co 3 so (VD:PP001).");
+        System.out.println("Ma san pham co 2 ky tu dau la 'TU' va thu tu sau co 3 so (VD:TU001).");
         while(true)
         {
         System.out.print("Hay nhap ma san pham : ");
@@ -399,7 +440,7 @@ class ThucUong extends Sanpham{
     }
 
     @Override
-    public void toStringL(){
-        System.out.println(super.toString()+String.format(" %-20s -%20s",Loai,DongGoi));
+    public String toStringL(){
+        return super.toString()+String.format(" %-20s -%20s",Loai,DongGoi);
     }
 }
