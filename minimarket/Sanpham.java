@@ -243,7 +243,7 @@ class ThoiTrang extends Sanpham{
         return GioiTinh;
     }
 
-    public void getGioiTinh(boolean GioiTinh)
+    public void setGioiTinh(boolean GioiTinh)
     {
         this.GioiTinh=GioiTinh;
     }

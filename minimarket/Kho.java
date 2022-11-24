@@ -479,4 +479,174 @@ public class Kho {
         return Copied;
     }
 
+    public Sanpham[] adjust() {
+    	boolean flag=false;
+    	byte choice=0;
+    	int viTri=0;
+    	for(int i=0;i<List.length;i++) {
+    		System.out.print("San pham thu "+(i+1)+" : ");
+    		List[i].toStringL();
+    		do {
+    			System.out.print("Thay doi thong tin hay khong? (0. Khong || 1. Co) : ");
+        		choice = Byte.parseByte(sc.nextLine());
+        		if (choice != 1 && choice !=0) System.out.println("Vui long nhap lai!");
+    		}while (choice != 1 && choice !=0);
+    		
+    		if (choice == 1) {
+    			flag = true;
+    			viTri = i;
+    			break;
+    		}
+    	}
+    	if (flag) {
+    		choice = 0;
+    		System.out.println("\n\n-Thong tin thay doi :");
+    		System.out.println("1. Thong tin chung");
+    		System.out.println("2. Thong tin rieng cua san pham");
+    		System.out.println("3. Toan bo thong tin");
+    		System.out.println("0 hoac Enter. Thoat khong thay doi nua");
+    		do {
+    			System.out.print("Lua chon cua ban : ");
+    			choice = Byte.parseByte(sc.nextLine());
+    			if (choice < 0 || choice >3) System.out.println("Lua chon khong phu hop moi nhap lai");
+    		}while (choice < 0 || choice >3);
+    		if (choice == 1) {
+    			byte luaChon=0;
+    			System.out.println("\n1. Thay doi || Con lai. Khong thay doi");
+    			System.out.print("\nThay doi ten :"); // Doi ten
+    			luaChon = Byte.parseByte(sc.nextLine());
+    			if (luaChon == 1) {
+    				System.out.print("Hay nhap ten san pham : ");
+    				List[viTri].setTen(sc.nextLine());
+    				luaChon = 0;
+    			}
+    			
+    			System.out.print("\nThay doi NXS? :"); // Doi NXS
+    			luaChon = Byte.parseByte(sc.nextLine());
+    			if (luaChon == 1) {
+    				System.out.print("Hay nhap ngay san xuat : ");
+    				List[viTri].NSX.inputDATE();
+    				luaChon = 0;
+    			}
+    			
+    			System.out.print("\nThay doi HSD? :"); // Doi han su dung
+    			luaChon = Byte.parseByte(sc.nextLine());
+    			if (luaChon == 1) {
+    				System.out.print("Hay nhap ngay het han : ");
+    				List[viTri].HSD.inputDATE();
+    				luaChon = 0;
+    			}
+    			
+    			System.out.print("\nThay doi ten hang? :"); // Doi ten hang
+    			luaChon = Byte.parseByte(sc.nextLine());
+    			if (luaChon == 1) {
+    				System.out.print("Hay nhap ten hang : ");
+    				List[viTri].setHang(sc.nextLine());
+    				luaChon = 0;
+    			}
+    			
+    			System.out.print("\nThay doi gia tien? :"); // Doi gia tien
+    			luaChon = Byte.parseByte(sc.nextLine());
+    			if (luaChon == 1) {
+    				System.out.print("Hay nhap gia tien : ");
+    				List[viTri].setGia(Long.parseLong(sc.nextLine()));;
+    				luaChon = 0;
+    			}
+    			
+    			System.out.print("\nThay doi so luong :"); // Doi so luong
+    			luaChon = Byte.parseByte(sc.nextLine());
+    			if (luaChon == 1) {
+    				System.out.print("Hay nhap so luong : ");
+    				List[viTri].setSl(Integer.parseInt(sc.nextLine()));;
+    				luaChon = 0;
+    			}
+    		}
+    		else if (choice == 2) {
+    			byte luaChon=0;
+    			System.out.println("\n1. Thay doi || Con lai. Khong thay doi");
+    			
+    			if (List[viTri] instanceof MyPham) { // MỸ PHẨM
+    				System.out.print("\nThay đổi loại? :");
+        			luaChon = Byte.parseByte(sc.nextLine());
+        			if (luaChon == 1) {
+        				System.out.print("Hãy nhập loại mỹ phẩm : ");
+        				((MyPham) List[viTri]).setLoai(sc.nextLine());
+        			}
+    			}
+    			else if (List[viTri] instanceof ThoiTrang) { //THỜI TRANG
+    				System.out.print("\nThay đổi giới tính? :");
+        			luaChon = Byte.parseByte(sc.nextLine());
+        			if (luaChon == 1) {
+        				boolean check=true;
+        		        do{
+        		        System.out.println("Hay nhap gioi tinh ( 1:Nam || 0:Nu )");
+        		        if(sc.nextLine().equals("1"))
+        		        {
+        		            ((ThoiTrang) List[viTri]).setGioiTinh(true);
+        		            check=false;
+        		        }
+        		        else if(sc.nextLine().equals("0"))
+        		        {
+        		        	((ThoiTrang) List[viTri]).setGioiTinh(false);
+        		            check=false;
+        		        }
+        		        else{
+        		            System.out.println("Nhap sai vui long nhap lai! ");
+        		        }
+        		        }while(check);
+        			}
+    			}
+    			
+    			else if (List[viTri] instanceof VPPham) {  // VĂN PHÒNG PHẨM
+    				System.out.print("\nThay doi chat lieu? :");
+        			luaChon = Byte.parseByte(sc.nextLine());
+        			if (luaChon == 1) {
+        				System.out.print("Hay nhap chat lieu : ");
+        				((VPPham) List[viTri]).setChatLieu(sc.nextLine());
+        				luaChon = 0;
+        			}
+        			
+        			System.out.print("\nThay doi doi tuong su dung? :");
+        			luaChon = Byte.parseByte(sc.nextLine());
+        			if (luaChon == 1) {
+        				System.out.print("Hay nhap doi tuong su dung : ");
+        				((VPPham) List[viTri]).setDoiTuong(sc.nextLine());
+        				luaChon = 0;
+        			}
+    			}
+    			
+    			else if (List[viTri] instanceof ThucPham) { // THỰC PHẨM
+    				System.out.print("\nThay doi cach che bien? :");
+        			luaChon = Byte.parseByte(sc.nextLine());
+        			if (luaChon == 1) {
+        				System.out.print("Hay nhap cach che bien : ");
+        				((ThucPham) List[viTri]).setCheBien(sc.nextLine());
+        			}
+    			}
+    			
+    			else if (List[viTri] instanceof ThucUong) { // THỨC UỐNG
+    				System.out.print("\nThay doi loai? :");
+        			luaChon = Byte.parseByte(sc.nextLine());
+        			if (luaChon == 1) {
+        				System.out.print("Hay nhap loai thuc uong : ");
+        				((ThucUong) List[viTri]).setLoai(sc.nextLine());
+        				luaChon = 0;
+        			}
+        			
+        			System.out.print("\nThay doi cach dong goi? :");
+        			luaChon = Byte.parseByte(sc.nextLine());
+        			if (luaChon == 1) {
+        				System.out.print("Hay nhap cach dong goi : ");
+        				((ThucUong) List[viTri]).setDongGoi(sc.nextLine());;
+        			}
+    			}
+    		}
+    		
+    		else if (choice == 3) {
+    			List[viTri].Input();
+    		}
+    	} 	
+    	return List;
+    }
+
 }
