@@ -1,0 +1,32 @@
+	Danh sach cac mat hang trong kho : 
+
+Ma         Ten                                                NSX                  HSD                  Hang                 SL         Gia            
+MP001      Son mong tay Felina Deluxe DS548 16ml              10/2/2020            10/2/2022            Felina               50         30000          
+PP001      Bo 6 but bi thien long TL-027                      21/12/2020                                Thien Long           200        19200          
+
+
+	Danh sach cac mat hang my pham : 
+
+Ma         Ten                                                NSX                  HSD                  Hang                 SL         Gia             Loai                
+MP001      Son mong tay Felina Deluxe DS548 16ml              10/2/2020            10/2/2022            Felina               50         30000           Duong mong          
+
+
+	Danh sach cac mat hang trang phuc : 
+
+Ma         Ten                                                NSX                  HSD                  Hang                 SL         Gia             Gioi tinh      
+
+
+	Danh sach cac mat hang van phong pham : 
+
+Ma         Ten                                                NSX                  HSD                  Hang                 SL         Gia             Chat lieu            Doi tuong           
+PP001      Bo 6 but bi thien long TL-027                      21/12/2020                                Thien Long           200        19200           Nhua                 Hoc sinh/Sinh vien  
+
+
+	Danh sach cac mat hang thuc pham : 
+
+Ma         Ten                                                NSX                  HSD                  Hang                 SL         Gia             Che bien            
+
+
+	Danh sach cac mat hang thuc uong : 
+
+Ma         Ten                                                NSX                  HSD                  Hang                 SL         Gia             Loai                 Dong goi            
