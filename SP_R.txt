@@ -1,3 +1,23 @@
-Total: 2
+Total: 22
 MP001,Son mong tay Felina Deluxe DS548 16ml,10022020,10022022,Felina,50,30000,Duong mong
+MP002,Son moi 3CE,10022020,10092022,3CE,50,245000,Son moi
+MP003,Nuoc hoa Lancom,10022020,10092022,Lancom,10,1139000,Nuoc hoa
 PP001,Bo 6 but bi thien long TL-027,21122020,00000000,Thien Long,200,19200,Nhua,Hoc sinh/Sinh vien
+PP002,Vo xe A4,01012022,00000000,Thien Long,150,19000,Giay,Hoc sinh/Sinh vien
+PP003,Thuoc ke 20cm,02022022,00000000,Thien Long,30,5000,Nhua,Hoc sinh/Sinh vien
+PP004,Bia Acco kho A4,02052022,00000000,Thien Long,50,8000,Nhua,Hoc sinh/Sinh vien
+PP005,But chi go g-star 2B,02052022,00000000,G-start,30,4000,Go,Hoc sinh/Sinh vien
+TP001,Pizza ngu vi Manna,26112022,26022023,Manna,50,29000,false
+TP002,Banh bao nhan thit trung CP,20112022,30112022,CP,100,13000,false
+TP003,Banh mi lat ABC,20102022,30102022,ABC,50,30000,false
+TP004,Xuc xich heo quay CP,20102022,30122022,CP,100,50000,false
+TP005,Ca bong tam bot gion cay CP,10112022,10122022,CP,10,36500,true
+TP006,Ga ac tiem 5 vi,25112022,25122022,CP,25,39000,true
+TU001,Bia Sai Gon Larger,01092022,01122022,SABECO,100,245000,Bia,Thung
+TU002,Wisky Nga,01052022,01112022,HANZ,35,125000,Ruou,Chai
+TU003,Coca Cola 1.5l,01052022,01122022,Coca Cola,200,20000,Nuoc ngot,Chai
+TU004,Sprite huong chanh,01012022,01062022,Sprite,200,32000,Nuoc ngot,Loc
+TU005,C2 tra xanh,01032022,01092022,C2,10,84000,Tra,Thung
+TT001,Ao khoac xam,01012022,00000000,MLB,50,500000,true,M
+TT002,Vay hoa nhi,02012022,00000000,Basic,25,350000,false,M
+TT003,Quan ong le,01012022,0000000,Basic,25,450000,false,S
